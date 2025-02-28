@@ -26,15 +26,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.welcome-guide {
-  background-image: url("sky-blue.jpg");
-  background-size: 100% 100%;
-  min-height: 60vh;
-  background-repeat: no-repeat;
-}
 .sign-copy {
   width: 50%;
-   animation: zoomEffect 3s ease-in-out infinite alternate; /* 🔥 Animation added */
+   animation: zoomEffect 3s ease-in-out infinite alternate;
 }
 @keyframes zoomEffect {
   0% {

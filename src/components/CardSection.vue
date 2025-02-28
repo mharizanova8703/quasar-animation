@@ -27,9 +27,6 @@ import { ref, onMounted } from "vue";
 
 onMounted(() => {
   const script = document.createElement("script");
-  script.src =
-    "https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs";
-  script.type = "module";
   document.head.appendChild(script);
 });
 
@@ -54,27 +51,11 @@ const cards = ref([
 </script>
 
 <style scoped>
-.card-title {
-  min-height: 50px; /* Ensures all titles take the same space */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
 .list-items {
-  position: relative;
   width: 100%;
-    padding: 3rem 0rem;
-    z-index: 1;
+  padding: 3rem 0rem;
 }
 .my-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Ensures equal spacing */
-  align-items: center;
   padding: 15px;
   border-radius: 10px;
   width: 100%;
@@ -86,7 +67,6 @@ const cards = ref([
   background: rgba(231, 207, 207, 0.3);
   transform: scale(1.05);
 }
-
 .card-image{
   width:200px;
 }

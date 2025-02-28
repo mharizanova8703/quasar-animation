@@ -1,6 +1,6 @@
 
  <template>
-  <div class=" q-gutter-md">
+  <div class="">
       <WelcomeGuide />
     <div class="row justify-between">
       <dotlottie-player
@@ -12,6 +12,7 @@
         autoplay
       ></dotlottie-player>
        <MainHeader ref="headerComponent" />
+      <CardSection/>
       <div class="q-parallax" style="height: 500px">
         <div class="q-parallax__media">
           <img
@@ -35,6 +36,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import MainHeader from "src/components/MainHeader.vue";
 import WelcomeGuide from "src/components/WelcomeGuide.vue"; 
+import CardSection from "src/components/CardSection.vue"; 
 const camperVan = ref(null);
 
 const handleScroll = () => {
