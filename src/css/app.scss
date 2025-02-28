@@ -1,0 +1,9 @@
+// app global css in SCSS form
+body {
+  min-height: 100%;
+  background: rgb(28, 17, 22);
+  background: -moz-radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
+  background: radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c1116", endColorstr="#132840", GradientType=1);
+}
