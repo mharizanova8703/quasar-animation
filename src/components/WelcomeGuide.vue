@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 welcome-guide text-center">
-    <img class="sign-copy" src="sign-guide.png" />
+    <!-- <img class="sign-copy" src="sign-guide.png" /> -->
     <dotlottie-player
       src="https://lottie.host/f0d8c0ad-33f2-430f-b9eb-4e1ecb02c94a/IP3bVp9Ta1.lottie"
       background="transparent"

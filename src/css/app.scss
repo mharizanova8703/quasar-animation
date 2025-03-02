@@ -1,9 +1,34 @@
-// app global css in SCSS form
 body {
+  font-family: "Montserrat", serif;
   min-height: 100%;
-  background: rgb(28, 17, 22);
-  background: -moz-radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
-  background: -webkit-radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
-  background: radial-gradient(circle, rgba(28, 17, 22, 1) 0%, rgba(19, 40, 64, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c1116", endColorstr="#132840", GradientType=1);
+  background: rgb(24, 40, 24); /* Dark army green base */
+  background: -moz-radial-gradient(
+    circle at top,
+    rgba(38, 56, 38, 1) 0%,
+    /* Deep military green */ rgba(28, 40, 28, 1) 30%,
+    /* Tactical green */ rgba(19, 30, 50, 1) 55%,
+    /* Green-blue transition */ rgba(15, 25, 80, 1) 80%,
+    /* Dark navy blue */ rgba(10, 15, 110, 1) 100% /* Deep midnight blue */
+  );
+  background: -webkit-radial-gradient(
+    circle at top,
+    rgba(38, 56, 38, 1) 0%,
+    rgba(28, 40, 28, 1) 30%,
+    rgba(19, 30, 50, 1) 55%,
+    rgba(15, 25, 80, 1) 80%,
+    rgba(10, 15, 110, 1) 100%
+  );
+  background: radial-gradient(
+    circle at top,
+    rgba(38, 56, 38, 1) 0%,
+    rgba(28, 40, 28, 1) 30%,
+    rgba(19, 30, 50, 1) 55%,
+    rgba(15, 25, 80, 1) 80%,
+    rgb(26, 27, 27) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr="#263826", endColorstr="#0A0F6E", GradientType=1
+  );
 }
+@import url('fonts.scss');
+@import url('font-size.scss');

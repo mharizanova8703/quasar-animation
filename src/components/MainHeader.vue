@@ -8,8 +8,8 @@
       >
         <q-card class="my-card">
           <q-card-section>
-           <q-img :src="card.img" class="card-image" />
-            <div class="text-h6 text-center">{{ card.title }}</div>
+            <q-img :src="card.img" class="card-image" />
+            <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
             <div class="text-subtitle2 text-center">{{ card.author }}</div>
           </q-card-section>
 
@@ -36,21 +36,20 @@ onMounted(() => {
 const cards = ref([
   {
     title: "Menu Plan",
-    text: "Plan a menu that is easy to cook and nutritious.",
-    img: "food.png"
+    text: "A well-planned camping menu keeps you energized for outdoor activities. Pack easy-to-cook meals like foil-wrapped veggies, grilled meats, pasta, and one-pot meals. Don’t forget high-energy snacks and hydration!",
+    img: "food.png",
   },
   {
     title: "Snacks",
-    text: "Bring snacks like nuts, dried fruit, and granola.",
-    img: "snack.png"
+    text: "Quick snacks are a must for camping. Pack protein bars, nuts, dried fruits, jerky, and s’mores ingredients. Bring some easy-to-carry trail mix for energy boosts during hikes!",
+    img: "snack.png",
   },
   {
     title: "Drinking Water",
     text: "Make sure you bring enough drinking water or a water filter.",
-    img: "water.png"
-  }
+    img: "water.png",
+  },
 ]);
-
 </script>
 
 <style scoped>
@@ -65,30 +64,36 @@ const cards = ref([
 }
 
 .list-items {
+  margin-top: 5rem;
   position: relative;
   width: 100%;
-    padding: 3rem 0rem;
-    z-index: 1;
+  padding: 3rem 0rem;
+  z-index: 1;
 }
 .my-card {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Ensures equal spacing */
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 1rem;
+  min-height: 100%;
   padding: 15px;
   border-radius: 10px;
   width: 100%;
   color: white;
   background: rgba(231, 207, 207, 0.112);
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 5px rgb(0 0 0 / 94%), 0 2px 2px rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 .my-card:hover {
-  background: rgba(231, 207, 207, 0.3);
+  background: rgba(231, 207, 207, 0);
   transform: scale(1.05);
 }
 
-.card-image{
-  width:200px;
+.card-image {
+  width: 200px;
 }
 @media (max-width: 768px) {
   .col-md-4 {
