@@ -13,30 +13,17 @@
         autoplay
       ></dotlottie-player>
       <MainHeader ref="headerComponent" />
+
+      <!-- <div class="ladybug-container">
+        <img class="ladybug-asset" src="ladybug.png" />
+      </div> -->
       <CardSection />
-      <div class="text-center">
-        <!-- <h1 class="text-center">
-          You're Ready to Explore Stay Safe & Have Fun!
-        </h1> -->
-      </div>
-      <div class="q-parallax" style="height: 500px">
-        <div class="q-parallax__media">
-          <img
-            class="mountain"
-            src="forest-bg.png"
-            style="display: initial; transform: translate3d(-50%, 414px, 0px)"
-          />
-        </div>
-        <div class="q-parallax__content absolute-full column flex-center"></div>
-      </div>
-    </div>
-    <div class="camper-van-container">
-      <img ref="camperVan" class="camper-van" src="camper-van.png" />
+      <EndSection />
     </div>
   </div>
-  <div>
-    <FooterSection />
-  </div>
+
+  <ParalaxSection />
+  <!-- <FooterSection /> -->
 </template>
 
 <script setup>
@@ -48,7 +35,7 @@ import NavbarHeader from "src/components/NavbarHeader.vue";
 import FooterSection from "src/components/FooterSection.vue";
 import BannerSection from "src/components/BannerSection.vue";
 import FindCampsite from "src/components/FindCampsite.vue";
-// import ParalaxSection from "src/components/ParalaxSection.vue";
+import ParalaxSection from "src/components/ParalaxSection.vue";
 const camperVan = ref(null);
 
 const handleScroll = () => {
@@ -69,7 +56,6 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  const header = ref(null);
   const script = document.createElement("script");
   script.src =
     "https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs";
@@ -85,11 +71,11 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.waviy {
-  position: relative;
-}
 .q-layout {
   min-height: auto;
+}
+.waviy {
+  position: relative;
 }
 .waviy span {
   position: relative;
@@ -99,10 +85,6 @@ onUnmounted(() => {
   text-transform: uppercase;
   animation: flip 2s infinite;
   animation-delay: calc(0.2s * var(--i));
-}
-.tree {
-  width: 100%;
-  position: relative;
 }
 @keyframes flip {
   0%,
@@ -131,7 +113,6 @@ h1 {
   animation: gradientMove 4s infinite alternate ease-in-out;
 }
 
-/* Subtle movement effect */
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -141,7 +122,6 @@ h1 {
   }
 }
 
-/* Optional: Glowing Effect for More Visibility */
 h1::after {
   content: attr(data-text);
   position: absolute;
@@ -169,8 +149,8 @@ h1::after {
 
 .mountain {
   height: 100%;
-  width: contain;
 }
+
 .camper-van {
   position: absolute;
   bottom: 0;
