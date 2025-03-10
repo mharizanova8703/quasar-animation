@@ -8,9 +8,9 @@
     </div>
 
     <!-- Camper Van -->
-    <div class="camper-van-container">
+    <!-- <div class="camper-van-container">
       <img ref="camperVan" class="camper-van" src="camper-van.png" />
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -4,12 +4,14 @@
       <div
         v-for="(card, index) in cards"
         :key="index"
-        class="col-12 col-sm-6 col-md-4 col-lg-3 flex justify-center"
+        class="col-12 col-sm-6 col-md-3 col-lg-3 flex justify-center"
       >
         <q-card class="my-card">
           <q-card-section>
             <q-img :src="card.img" class="card-image" />
-            <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
+            <div class="font-pxl text-center montserrat-bold">
+              {{ card.title }}
+            </div>
             <div class="text-subtitle2 text-center">{{ card.author }}</div>
           </q-card-section>
 
@@ -36,12 +38,14 @@ onMounted(() => {
 const cards = ref([
   {
     title: "Menu Plan",
-    text: "A well-planned camping menu keeps you energized for outdoor activities. Pack easy-to-cook meals like foil-wrapped veggies, grilled meats, pasta, and one-pot meals. Don’t forget high-energy snacks and hydration!",
+    text:
+      "A well-planned camping menu keeps you energized for outdoor activities. Pack easy-to-cook meals like foil-wrapped veggies, grilled meats, pasta, and one-pot meals. Don’t forget high-energy snacks and hydration!",
     img: "food.png",
   },
   {
     title: "Snacks",
-    text: "Quick snacks are a must for camping. Pack protein bars, nuts, dried fruits, jerky, and s’mores ingredients. Bring some easy-to-carry trail mix for energy boosts during hikes!",
+    text:
+      "Quick snacks are a must for camping. Pack protein bars, nuts, dried fruits, jerky, and s’mores ingredients. Bring some easy-to-carry trail mix for energy boosts during hikes!",
     img: "snack.png",
   },
   {

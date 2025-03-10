@@ -1,41 +1,42 @@
 <template>
-  <div class="">
-    <NavbarHeader />
-    <BannerSection />
-    <WelcomeGuide />
-    <div class="row justify-between">
-      <dotlottie-player
-        src="https://lottie.host/03b9aaa3-16fc-4ed3-96c8-c6fe7d1db49c/hc3dqvRXN0.lottie"
-        background="transparent"
-        speed="1"
-        class="moon-animation"
-        loop
-        autoplay
-      ></dotlottie-player>
-      <MainHeader ref="headerComponent" />
-      <CardSection />
-      <div class="text-center">
-        <!-- <h1 class="text-center">
-          You're Ready to Explore Stay Safe & Have Fun!
-        </h1> -->
-      </div>
-      <div class="q-parallax" style="height: 500px">
-        <div class="q-parallax__media">
-          <img
-            class="mountain"
-            src="forest-bg.png"
-            style="display: initial; transform: translate3d(-50%, 414px, 0px)"
-          />
-        </div>
-        <div class="q-parallax__content absolute-full column flex-center"></div>
-      </div>
-    </div>
-    <div class="camper-van-container">
-      <img ref="camperVan" class="camper-van" src="camper-van.png" />
-    </div>
-  </div>
   <div>
-    <FooterSection />
+    <div class="">
+      <NavbarHeader />
+      <BannerSection />
+      <WelcomeGuide />
+      <div class="row justify-between">
+        <dotlottie-player
+          src="https://lottie.host/03b9aaa3-16fc-4ed3-96c8-c6fe7d1db49c/hc3dqvRXN0.lottie"
+          background="transparent"
+          speed="1"
+          class="moon-animation"
+          loop
+          autoplay
+        ></dotlottie-player>
+        <MainHeader ref="headerComponent" />
+        <CardSection />
+        <!-- <div class="text-center">
+          <h1 class="text-center">You're Ready to Explore Stay Safe & Have Fun!</h1>
+        </div> -->
+
+        <div class="q-parallax" style="height: 500px">
+          <div class="q-parallax__media">
+            <img
+              class="mountain"
+              src="forest-bg.png"
+              style="display: initial; transform: translate3d(-50%, 414px, 0px)"
+            />
+          </div>
+          <div class="q-parallax__content absolute-full column flex-center"></div>
+        </div>
+      </div>
+      <div class="camper-van-container">
+        <img ref="camperVan" class="camper-van" src="camper-van.png" />
+      </div>
+    </div>
+    <div>
+      <FooterSection />
+    </div>
   </div>
 </template>
 

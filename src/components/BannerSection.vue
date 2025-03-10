@@ -1,7 +1,7 @@
 <template>
   <div class="list-items">
     <div class="row q-gutter-md justify-center">
-      <div class="col-sm-6 col-md-8 col-lg-12 flex justify-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
         <q-card class="my-card">
           <q-card-section class="text-center">
             <h1 class="text-bold text-amber-7">
