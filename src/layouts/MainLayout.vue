@@ -1,41 +1,20 @@
 <template>
   <div>
-    <div class="">
+    <div>
+
       <NavbarHeader />
       <BannerSection />
       <WelcomeGuide />
-      <div class="row justify-between">
-        <dotlottie-player
-          src="https://lottie.host/03b9aaa3-16fc-4ed3-96c8-c6fe7d1db49c/hc3dqvRXN0.lottie"
-          background="transparent"
-          speed="1"
-          class="moon-animation"
-          loop
-          autoplay
-        ></dotlottie-player>
+
         <MainHeader ref="headerComponent" />
         <CardSection />
-        <!-- <div class="text-center">
-          <h1 class="text-center">You're Ready to Explore Stay Safe & Have Fun!</h1>
-        </div> -->
-
-        <div class="q-parallax" style="height: 500px">
-          <div class="q-parallax__media">
-            <img
-              class="mountain"
-              src="forest-bg.png"
-              style="display: initial; transform: translate3d(-50%, 414px, 0px)"
-            />
-          </div>
-          <div class="q-parallax__content absolute-full column flex-center"></div>
-        </div>
-      </div>
-      <div class="camper-van-container">
+   
+      <ParalaxSection />
+        <!-- <div class="camper-van-container">
         <img ref="camperVan" class="camper-van" src="camper-van.png" />
-      </div>
-    </div>
-    <div>
-      <FooterSection />
+      </div> -->
+  
+    <FooterSection />
     </div>
   </div>
 </template>
@@ -49,7 +28,7 @@ import NavbarHeader from "src/components/NavbarHeader.vue";
 import FooterSection from "src/components/FooterSection.vue";
 import BannerSection from "src/components/BannerSection.vue";
 import FindCampsite from "src/components/FindCampsite.vue";
-// import ParalaxSection from "src/components/ParalaxSection.vue";
+import ParalaxSection from "src/components/ParalaxSection.vue";
 const camperVan = ref(null);
 
 const handleScroll = () => {
@@ -112,6 +91,7 @@ onUnmounted(() => {
   }
 }
 .q-parallax {
+  background-size: 100% 100%;
   position: static;
   z-index: 0;
   height: 100%;
@@ -141,8 +121,6 @@ h1 {
     background-position: 100% 50%;
   }
 }
-
-/* Optional: Glowing Effect for More Visibility */
 h1::after {
   content: attr(data-text);
   position: absolute;
@@ -163,23 +141,7 @@ h1::after {
   z-index: 10;
 }
 
-.camper-van-container {
-  position: relative;
-  min-height: 100vh;
-}
 
-.mountain {
-  height: 100%;
-  width: contain;
-}
-.camper-van {
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  width: 400px;
-  z-index: 10;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
 p {
   position: relative;
   font-family: sans-serif;

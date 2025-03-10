@@ -5,7 +5,6 @@
       <div class="footer-container row justify-between items-center">
         <!-- Left: Logo & Quick Links -->
         <div class="col-12 col-md-4 text-center text-md-left">
-          <q-img src="/camping-logo.png" class="footer-logo q-mb-sm" />
           <div class="footer-links">
             <q-btn flat to="/" label="Home" class="text-white" />
             <q-btn flat to="/menu" label="Menu" class="text-white" />

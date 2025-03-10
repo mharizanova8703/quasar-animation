@@ -3,14 +3,15 @@
     <!-- Parallax Background -->
     <div class="q-parallax">
       <div class="q-parallax__media">
-        <img ref="mountain" class="mountain" src="bg-forest.png" />
+        <!-- Remove the img tag for the mountain -->
+        <!-- <img ref="mountain" class="mountain" src="bg-forest.png" /> -->
       </div>
     </div>
 
     <!-- Camper Van -->
-    <!-- <div class="camper-van-container">
+    <div class="camper-van-container">
       <img ref="camperVan" class="camper-van" src="camper-van.png" />
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -49,51 +50,32 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Main Container */
 .parallax-container {
   position: relative;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
+  background-image: url('forest-bg.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
 }
 
-/* Parallax Background (Forest) */
-.q-parallax {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-}
-
-.q-parallax__media {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.q-parallax__media img {
-  width: 100%;
-  height: auto;
-  max-height: 100vh;
-  object-fit: cover;
-  transition: transform 0.3s ease-out;
-}
-
-/* Camper Van */
 .camper-van-container {
+  position: relative;
+  min-height: 90vh;
+}
+
+
+/* .mountain {
+  height: 100%;
+  width: contain;
+} */
+
+.camper-van {
   position: absolute;
   bottom: 0;
   left: 10%;
+  width: 400px;
   z-index: 10;
-}
-
-.camper-van {
-  width: 300px;
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(-1); /* Flips the van to face the right */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 </style>
