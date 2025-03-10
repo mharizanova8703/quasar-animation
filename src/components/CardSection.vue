@@ -16,13 +16,13 @@
           <q-card-section class="q-pt-none">
             {{ card.text }}
           </q-card-section>
-          <q-btn label="Alert" color="yellow-orange" @click="card.alert = true" />
+          <q-btn label="Alert" color="yellow-orange q-mb-md btn-alert" @click="card.alert = true" />
         </q-card>
 
         <q-dialog v-model="card.alert">
           <q-card>
             <q-card-section>
-              <div class="text-h6">Alert</div>
+              <div class="text-h6 alert-btn mx-auto">Alert</div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
@@ -32,7 +32,7 @@
             </q-card-section>
 
             <q-card-actions align="right">
-              <q-btn flat label="OK" color="yellow-orange" v-close-popup />
+              <q-btn flat label="OK" color="yellow-orange q-my-auto" v-close-popup />
             </q-card-actions>
           </q-card>
         </q-dialog>
@@ -89,6 +89,14 @@ const cards = ref([
   background: rgba(231, 207, 207, 0.112);
   backdrop-filter: blur(10px);
 }
+.q-dialog__backdrop {
+    z-index: -1;
+    pointer-events: all;
+    outline: 0;
+    background: rgb(0 0 0 / 78%);
+}
+
+
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
   transform: scale(1.05);
@@ -97,7 +105,20 @@ const cards = ref([
   width: 200px;
 }
 .q-btn {
+  cursor: pointer;
   background-color: #FFA500;
+   border-radius: 2rem;
+  color: #213121!important;
+  width: 200px;
+  font-family: var(--font-montserrat-bold);
+  font-weight: var(--font-weight-bold);
+}
+q-btn:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05); 
+}
+.btn-alert{
+  color: black;
 }
 @media (max-width: 768px) {
   .col-md-4 {

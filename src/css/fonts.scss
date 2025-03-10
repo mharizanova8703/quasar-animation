@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-.montserrat-regular {
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+:root {
+  --font-montserrat-regular: "Montserrat", serif;
+  --font-montserrat-bold: "Montserrat", serif;
+  --font-optical-sizing: auto;
+  --font-weight-regular: 400;
+  --font-weight-bold: 800;
+  --font-style-normal: normal;
 }
-.montserrat-bold{
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
+
+.montserrat-regular {
+  font-family: var(--font-montserrat-regular);
+  font-optical-sizing: var(--font-optical-sizing);
+  font-weight: var(--font-weight-regular);
+  font-style: var(--font-style-normal);
+}
+
+.montserrat-bold {
+  font-family: var(--font-montserrat-bold);
+  font-optical-sizing: var(--font-optical-sizing);
+  font-weight: var(--font-weight-bold);
+  font-style: var(--font-style-normal);
 }
