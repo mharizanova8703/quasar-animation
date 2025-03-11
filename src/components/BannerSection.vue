@@ -9,7 +9,7 @@
               Your Ultimate Camping Guide
             </h1>
             <hr />
-            <p ref="text" class="font-smd custom-copy q-mt-md">
+            <p ref="text" class="font-smd custom-copy q-mt-md q-pt-md q-mb-md">
               Step away from the everyday and reconnect with the wild. Breathe in the
               fresh air, feel the ground beneath your feet, and let nature do the rest.
               Roast some marshmallows by the fire, take a quiet moment to meditate, or go
@@ -27,10 +27,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// ✅ Import GSAP
+// ✅ Load GSAP dynamically
 const loadGSAP = () => {
   return new Promise((resolve) => {
-    if (window.gsap) return resolve();
+    if (window.gsap) return resolve(); // Prevents multiple loads
     const script = document.createElement("script");
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
     script.onload = resolve;
@@ -46,27 +46,31 @@ const text = ref(null);
 onMounted(async () => {
   await loadGSAP();
 
+  // ✅ Card enters with a subtle bounce
   gsap.from(card.value, {
     opacity: 0,
-    scale: 0.9,
-    duration: 1.5,
-    ease: "power2.out"
+    scale: 0.8,
+    y: 100, // Stronger downward motion for "walking" effect
+    duration: 1.2,
+    ease: "back.out(1.7)" // Back ease gives a bounce
   });
 
+  // ✅ Heading slides in naturally
   gsap.from(heading.value, {
     opacity: 0,
-    y: 50,
-    duration: 1.5,
-    delay: 0.3,
-    ease: "power2.out"
+    y: 30, // Less floating, more "walking in"
+    duration: 1,
+    delay: 0.2,
+    ease: "power4.out"
   });
 
+  // ✅ Text staggered fade-in with a solid start
   gsap.from(text.value, {
     opacity: 0,
-    y: 30,
-    duration: 1.2,
-    delay: 0.5,
-    ease: "power2.out"
+    y: 20, // Small movement for a grounded feel
+    duration: 1,
+    delay: 0.4,
+    ease: "power3.out"
   });
 });
 </script>
