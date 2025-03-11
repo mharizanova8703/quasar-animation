@@ -130,13 +130,13 @@ q-dialog {
   cursor: pointer;
   background-color: #387566;
    border-radius: 2rem;
-  color: #d0f734!important;
+  color: #181d06!important;
   width: 200px;
   font-family: var(--font-montserrat-bold);
   font-weight: var(--font-weight-bold);
 }
 .q-btn:hover {
-  background-color: #736107;
+  background-color: #d9c251;
   transform: scale(1.05); 
 }
 .btn-alert {

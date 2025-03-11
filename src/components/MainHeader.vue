@@ -119,15 +119,15 @@ const cards = ref([
 }
 .q-btn {
   cursor: pointer;
-  background-color: #f0c906;
+  background-color: #387566;
    border-radius: 2rem;
-  color: #213121!important;
+  color: #181d06!important;
   width: 200px;
   font-family: var(--font-montserrat-bold);
   font-weight: var(--font-weight-bold);
 }
-q-btn:hover {
-  background-color: #f0c906;
+.q-btn:hover {
+  background-color: #d9c251;
   transform: scale(1.05); 
 }
 @media (max-width: 768px) {

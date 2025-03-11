@@ -60,8 +60,9 @@ onUnmounted(() => {
   overflow: hidden;
   background-image: url('forest-bg.png'); /* Adding background image */
   background-size: 100%;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
+
   
 }
 

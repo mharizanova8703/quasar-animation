@@ -99,17 +99,6 @@ onUnmounted(() => {
 .q-parallax__media > img {
   bottom: auto;
 }
-h1 {
-  font-size: 3rem;
-  margin: auto;
-  font-weight: 700;
-  font-family: "Montserrat", serif;
-  text-align: center;
-  background: linear-gradient(90deg, #ffa500, #ffd700, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 4s infinite alternate ease-in-out;
-}
 
 /* Subtle movement effect */
 @keyframes gradientMove {

@@ -4,7 +4,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
         <q-card class="my-card">
           <q-card-section class="text-center">
-            <h1 class="text-bold main-copy">
+            <h1 class="text-bold main-copy font-xxld">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
