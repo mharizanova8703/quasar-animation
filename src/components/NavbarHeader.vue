@@ -76,7 +76,7 @@ const toggleDrawer = () => {
 
 <style scoped>
 .bg-dark-green {
-  background-color: #1c3b24; /* Deep Army Green */
+  background-color: #1c3b24;
 }
 .q-layout {
   height: auto !important;

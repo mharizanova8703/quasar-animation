@@ -119,7 +119,7 @@ const cards = ref([
 }
 .q-btn {
   cursor: pointer;
-  background-color: #FFA500;
+  background-color: #f0c906;
    border-radius: 2rem;
   color: #213121!important;
   width: 200px;
@@ -127,7 +127,7 @@ const cards = ref([
   font-weight: var(--font-weight-bold);
 }
 q-btn:hover {
-  background-color: #ff8c00;
+  background-color: #f0c906;
   transform: scale(1.05); 
 }
 @media (max-width: 768px) {

@@ -1,48 +1,53 @@
 <template>
-  <div class="list-items">
-    <div class="row q-gutter-md justify-center">
-      <div
-        v-for="(card, index) in cards"
-        :key="index"
-        class="col-12 col-sm-6 col-md-3 col-lg-3 flex justify-center"
-      >
-        <q-card class="my-card">
-          <q-card-section class="text-center">
-            <q-img :src="card.img" class="card-image" />
-            <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
-            <div class="text-subtitle2 text-center">{{ card.author }}</div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-            {{ card.text }}
-          </q-card-section>
-          <q-btn label="Alert" color="yellow-orange q-mb-md btn-alert" @click="card.alert = true" />
-        </q-card>
-
-        <q-dialog v-model="card.alert">
-          <q-card>
-            <q-card-section>
-              <div class="text-h6 alert-btn mx-auto">Alert</div>
+  <div>
+    <div class="list-items">
+      <div class="row q-gutter-md justify-center">
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+          class="col-12 col-sm-6 col-md-3 col-lg-3 flex justify-center"
+        >
+          <q-card class="my-card">
+            <q-card-section class="text-center">
+              <q-img :src="card.img" class="card-image" />
+              <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
+              <div class="text-subtitle2 text-center">{{ card.author }}</div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus
-              sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea
-              at omnis vel numquam exercitationem aut, natus minima, porro labore.
+              {{ card.text.length > 50 ? card.text.substring(0, 50) + "..." : card.text }}
             </q-card-section>
-
-            <q-card-actions align="right">
-              <q-btn flat label="OK" color="yellow-orange q-my-auto" v-close-popup />
-            </q-card-actions>
+            
+            <q-btn label="Read More" color="yellow-orange q-mb-md btn-alert" @click="openModal(card)" />
           </q-card>
-        </q-dialog>
+        </div>
       </div>
     </div>
+
+    <!-- Modal for displaying full content dynamically -->
+    <q-dialog v-model="selectedCard.alert">
+      <q-card>
+        <q-card-section class="text-center">
+          <div class="montserrat-bold font-xls alert-btn mx-auto">{{ selectedCard.title }}</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none text-center">
+          <q-img :src="selectedCard.img" class="modal-image" />
+          <p>{{ selectedCard.text }}</p> <!-- Full text displayed in modal -->
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Close" color="yellow-orange q-my-auto" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+
+const selectedCard = ref({ alert: false });
 
 const cards = ref([
   {
@@ -50,28 +55,34 @@ const cards = ref([
     text:
       "Choosing the right footwear is essential. Hiking boots provide ankle support, waterproof shoes protect against wet trails, and sandals are perfect for casual campsite wear. Make sure your shoes are broken in before the trip!",
     img: "boots.png",
-    alert: ref(false), // Unique modal state per card
+    alert: false,
   },
   {
     title: "Camping Fire",
     text:
       "Fire is essential for warmth, cooking, and safety. Bring waterproof matches, fire starters, and dry kindling. Follow Leave No Trace principles—only build fires in designated areas and extinguish them completely before leaving.",
     img: "wild-fire.png",
-    alert: ref(false),
+    alert: false,
   },
   {
     title: "Wild Animals",
     text:
       "Wildlife encounters are part of camping. Store food in bear-proof containers, never feed animals, and know how to react to encounters with bears, snakes, or coyotes. Keep your distance and respect their habitat.",
     img: "wild-life.png",
-    alert: ref(false),
+    alert: false,
   },
 ]);
+
+const openModal = (card) => {
+  selectedCard.value = { ...card, alert: true };
+};
 </script>
+
 <style scoped>
 .list-items {
   width: 100%;
   padding: 3rem 0rem;
+  z-index: 1;
 }
 .my-card {
   display: flex;
@@ -95,8 +106,14 @@ const cards = ref([
     outline: 0;
     background: rgb(0 0 0 / 78%);
 }
-
-
+.q-card__actions{
+  display: flex;
+  justify-content: center;
+}
+q-dialog {
+  display: flex;
+  justify-content: center;
+}
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
   transform: scale(1.05);
@@ -104,20 +121,25 @@ const cards = ref([
 .card-image {
   width: 200px;
 }
+.modal-image {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+}
 .q-btn {
   cursor: pointer;
-  background-color: #FFA500;
+  background-color: #387566;
    border-radius: 2rem;
-  color: #213121!important;
+  color: #d0f734!important;
   width: 200px;
   font-family: var(--font-montserrat-bold);
   font-weight: var(--font-weight-bold);
 }
-q-btn:hover {
-  background-color: #ff8c00;
+.q-btn:hover {
+  background-color: #736107;
   transform: scale(1.05); 
 }
-.btn-alert{
+.btn-alert {
   color: black;
 }
 @media (max-width: 768px) {

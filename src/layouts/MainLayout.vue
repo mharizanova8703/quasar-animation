@@ -27,7 +27,6 @@ import CardSection from "src/components/CardSection.vue";
 import NavbarHeader from "src/components/NavbarHeader.vue";
 import FooterSection from "src/components/FooterSection.vue";
 import BannerSection from "src/components/BannerSection.vue";
-import FindCampsite from "src/components/FindCampsite.vue";
 import ParalaxSection from "src/components/ParalaxSection.vue";
 const camperVan = ref(null);
 

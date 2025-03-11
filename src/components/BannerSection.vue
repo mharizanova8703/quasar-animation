@@ -4,7 +4,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
         <q-card class="my-card">
           <q-card-section class="text-center">
-            <h1 class="text-bold text-amber-7">
+            <h1 class="text-bold main-copy">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
@@ -55,6 +55,9 @@ onMounted(() => {
 }
 hr {
   width: 50%;
+}
+.main-copy{
+  color: #f0c906;
 }
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
