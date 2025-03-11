@@ -2,14 +2,14 @@
   <div class="list-items">
     <div class="row q-gutter-md justify-center">
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
-        <q-card class="my-card">
+        <q-card ref="card" class="my-card">
           <q-card-section class="text-center">
-            <h1 class="text-bold main-copy font-xxld">
+            <h1 ref="heading" class="text-bold main-copy font-xxld">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
             <hr />
-            <p class="font-smd custom-copy q-mt-md">
+            <p ref="text" class="font-smd custom-copy q-mt-md">
               Step away from the everyday and reconnect with the wild. Breathe in the
               fresh air, feel the ground beneath your feet, and let nature do the rest.
               Roast some marshmallows by the fire, take a quiet moment to meditate, or go
@@ -23,12 +23,51 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref, onMounted } from "vue";
 
-onMounted(() => {
-  const script = document.createElement("script");
-  document.head.appendChild(script);
+// ✅ Import GSAP
+const loadGSAP = () => {
+  return new Promise((resolve) => {
+    if (window.gsap) return resolve();
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+    script.onload = resolve;
+    document.head.appendChild(script);
+  });
+};
+
+// Refs for animation
+const card = ref(null);
+const heading = ref(null);
+const text = ref(null);
+
+onMounted(async () => {
+  await loadGSAP();
+
+  gsap.from(card.value, {
+    opacity: 0,
+    scale: 0.9,
+    duration: 1.5,
+    ease: "power2.out"
+  });
+
+  gsap.from(heading.value, {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    delay: 0.3,
+    ease: "power2.out"
+  });
+
+  gsap.from(text.value, {
+    opacity: 0,
+    y: 30,
+    duration: 1.2,
+    delay: 0.5,
+    ease: "power2.out"
+  });
 });
 </script>
 
@@ -56,7 +95,7 @@ onMounted(() => {
 hr {
   width: 50%;
 }
-.main-copy{
+.main-copy {
   color: #f0c906;
 }
 .my-card:hover {
@@ -67,7 +106,6 @@ hr {
   width: 65%;
   margin: auto;
 }
-
 .card-image {
   width: 200px;
 }
