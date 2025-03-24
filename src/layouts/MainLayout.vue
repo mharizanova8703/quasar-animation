@@ -1,20 +1,15 @@
 <template>
   <div>
     <div>
-
       <NavbarHeader />
       <BannerSection />
       <WelcomeGuide />
 
-        <MainHeader ref="headerComponent" />
-        <CardSection />
-   
+      <MainHeader ref="headerComponent" />
+      <CardSection />
+      <CaroselSection />
       <ParalaxSection />
-        <!-- <div class="camper-van-container">
-        <img ref="camperVan" class="camper-van" src="camper-van.png" />
-      </div> -->
-  
-    <FooterSection />
+      <FooterSection />
     </div>
   </div>
 </template>
@@ -28,6 +23,7 @@ import NavbarHeader from "src/components/NavbarHeader.vue";
 import FooterSection from "src/components/FooterSection.vue";
 import BannerSection from "src/components/BannerSection.vue";
 import ParalaxSection from "src/components/ParalaxSection.vue";
+import CaroselSection from "src/components/CaroselSection.vue";
 const camperVan = ref(null);
 
 const handleScroll = () => {
@@ -128,7 +124,6 @@ h1::after {
   left: 10%;
   z-index: 10;
 }
-
 
 p {
   position: relative;

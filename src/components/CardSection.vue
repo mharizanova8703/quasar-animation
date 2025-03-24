@@ -23,8 +23,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal for displaying full content dynamically -->
     <q-dialog v-model="selectedCard.alert">
       <q-card>
         <q-card-section class="text-center">
@@ -42,6 +40,7 @@
       </q-card>
     </q-dialog>
   </div>
+  
 </template>
 
 <script setup>

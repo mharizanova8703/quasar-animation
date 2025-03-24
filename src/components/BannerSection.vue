@@ -27,7 +27,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// ✅ Load GSAP dynamically
 const loadGSAP = () => {
   return new Promise((resolve) => {
     if (window.gsap) return resolve(); // Prevents multiple loads
@@ -46,13 +45,12 @@ const text = ref(null);
 onMounted(async () => {
   await loadGSAP();
 
-  // ✅ Card enters with a subtle bounce
   gsap.from(card.value, {
     opacity: 0,
     scale: 0.8,
-    y: 100, // Stronger downward motion for "walking" effect
+    y: 100, 
     duration: 1.2,
-    ease: "back.out(1.7)" // Back ease gives a bounce
+    ease: "back.out(1.7)"
   });
 
   // ✅ Heading slides in naturally
