@@ -5,7 +5,7 @@
         <q-card ref="card" class="my-card">
           <q-card-section class="text-center">
           
-              <h1 class="flicker">
+              <h1 class="flicker montserrat-bold">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
@@ -100,7 +100,7 @@ onMounted(async () => {
 }
 .flicker {
   animation: flickerAnimation 2s infinite;
-  color: #d9c251;
+  color: #ffc932;
 }
 
 @keyframes flickerAnimation {
@@ -114,7 +114,7 @@ hr {
   width: 50%;
 }
 .main-copy {
-  color: #d9c251;
+  color: #ffc932;;
 }
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
@@ -130,6 +130,9 @@ hr {
 @media (max-width: 768px) {
   .col-md-4 {
     width: 100%;
+  }
+  .custom-copy{
+    width: 85%;
   }
 }
 </style>

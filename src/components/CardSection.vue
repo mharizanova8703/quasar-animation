@@ -5,7 +5,7 @@
         <div
           v-for="(card, index) in cards"
           :key="index"
-          class="col-12 col-sm-6 col-md-3 col-lg-3 flex justify-center"
+          class="col-11 col-sm-6 col-md-3 col-lg-3 flex justify-center"
         >
           <q-card class="my-card">
             <q-card-section class="text-center">

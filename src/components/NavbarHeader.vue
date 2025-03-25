@@ -1,32 +1,17 @@
 <template>
   <q-layout>
     <!-- Navbar -->
-    <q-header elevated class="bg-dark-green text-white">
+    <q-header elevated class="bg-dark-green">
       <q-toolbar>
         <!-- Logo -->
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          @click="toggleDrawer"
-          class="q-mr-md q-md-hide"
-        />
+     
         <q-img src="/camping-logo.png" class="logo q-mr-sm" />
 
-        <q-toolbar-title class="text-bold">Camping Guide</q-toolbar-title>
+        <q-toolbar-title >Camping Guide <img class="favicon-w" src="favicon.png"></q-toolbar-title>
 
         <!-- Desktop Navigation -->
         <q-space />
-        <q-tabs class="q-md-flex q-none">
-          <q-route-tab to="/" label="Home" />
-          <q-route-tab to="/menu" label="Menu" />
-          <q-route-tab to="/plan" label="Plan" />
-          <q-route-tab to="/snacks" label="Snacks" />
-          <q-route-tab to="/gear" label="Gear & Shoes" />
-          <q-route-tab to="/fire" label="Fire & Safety" />
-          <q-route-tab to="/wildlife" label="Wildlife" />
-        </q-tabs>
+     
       </q-toolbar>
     </q-header>
 
@@ -37,30 +22,6 @@
       overlay
       class="bg-dark-green text-white"
     >
-      <q-list>
-        <q-item-label header>Camping Guide</q-item-label>
-        <q-item clickable v-ripple to="/" @click="toggleDrawer">
-          <q-item-section>Home</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/menu" @click="toggleDrawer">
-          <q-item-section>Menu</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/plan" @click="toggleDrawer">
-          <q-item-section>Plan</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/snacks" @click="toggleDrawer">
-          <q-item-section>Snacks</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/gear" @click="toggleDrawer">
-          <q-item-section>Gear & Shoes</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/fire" @click="toggleDrawer">
-          <q-item-section>Fire & Safety</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/wildlife" @click="toggleDrawer">
-          <q-item-section>Wildlife</q-item-section>
-        </q-item>
-      </q-list>
     </q-drawer>
   </q-layout>
 </template>
@@ -76,17 +37,30 @@ const toggleDrawer = () => {
 
 <style scoped>
 .bg-dark-green {
-  color: #d9c251;
-  background-color: #24473a;
+  color: #ffc932;
+  background-color: #031b12;
+}
+.favicon-w{
+  width:30px;
+  margin: 0 10px;
 }
 .q-layout {
     color: #d9c251;
   height: auto !important;
   min-height: unset !important;
 }
+.q-toolbar-title{
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  color: #ffc932;
+}
 .logo {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+.ellipsis {
+display: flex;
 }
 </style>

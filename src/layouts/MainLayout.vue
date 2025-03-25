@@ -8,6 +8,7 @@
       <MainHeader ref="headerComponent" />
       <CardSection />
       <CaroselSection />
+      <SectionEnd />
       <ParalaxSection />
       <FooterSection />
     </div>
@@ -24,6 +25,7 @@ import FooterSection from "src/components/FooterSection.vue";
 import BannerSection from "src/components/BannerSection.vue";
 import ParalaxSection from "src/components/ParalaxSection.vue";
 import CaroselSection from "src/components/CaroselSection.vue";
+import SectionEnd from "src/components/SectionEnd.vue";
 const camperVan = ref(null);
 
 const handleScroll = () => {
