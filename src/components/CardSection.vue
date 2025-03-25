@@ -18,13 +18,13 @@
               {{ card.text.length > 50 ? card.text.substring(0, 50) + "..." : card.text }}
             </q-card-section>
 
-            <q-btn label="Read More" color="yellow-orange q-mb-md btn-alert" @click="openModal(card)" />
+            <q-btn label="Read More" color="yellow-orange  btn-alert" @click="openModal(card)" />
           </q-card>
         </div>
       </div>
     </div>
     <q-dialog v-model="selectedCard.alert">
-      <q-card>
+      <q-card class="model-card q-pa-md">
         <q-card-section class="text-center">
           <div class="montserrat-bold font-xls alert-btn mx-auto">{{ selectedCard.title }}</div>
         </q-card-section>
@@ -35,7 +35,7 @@
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="Close" color="yellow-orange q-my-auto" v-close-popup />
+          <q-btn flat label="Close" color="yellow-orange q-my-auto q-mb-lg" v-close-popup />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -46,7 +46,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// ✅ Function to load GSAP dynamically
 const loadGSAP = () => {
   return new Promise((resolve) => {
     if (window.gsap) return resolve(); // Prevents multiple loads
@@ -88,7 +87,6 @@ const cards = ref([
 const openModal = (card) => {
   selectedCard.value = { ...card, alert: true };
 
-  // ✅ Animate the modal image when it appears
   setTimeout(() => {
     gsap.from(modalImage.value.$el, {
       opacity: 0,
@@ -101,8 +99,6 @@ const openModal = (card) => {
 
 onMounted(async () => {
   await loadGSAP();
-
-  // ✅ Animate the images (Fade in + Scale effect)
   gsap.from(images.value.map(img => img.$el), {
     opacity: 0,
     scale: 0.9,
@@ -139,11 +135,16 @@ onMounted(async () => {
     z-index: -1;
     pointer-events: all;
     outline: 0;
-    background: rgb(0 0 0 / 78%);
+    background: rgba(0, 0, 0, 0.958);
 }
 .q-card__actions{
   display: flex;
   justify-content: center;
+}
+.model-card{
+  color: white;
+  background-color: #031b12;
+
 }
 q-dialog {
   display: flex;
@@ -157,8 +158,6 @@ q-dialog {
   width: 200px;
   transition: transform 0.3s ease;
 }
-
-/* ✅ Hover effect for images */
 .card-image:hover {
   transform: scale(1.1) rotate(3deg);
 }
@@ -170,7 +169,7 @@ q-dialog {
 }
 .q-btn {
   cursor: pointer;
-  background-color: #387566;
+  background-color: #d9c251;
    border-radius: 2rem;
   color: #181d06!important;
   width: 200px;
@@ -178,7 +177,7 @@ q-dialog {
   font-weight: var(--font-weight-bold);
 }
 .q-btn:hover {
-  background-color: #d9c251;
+  background-color: #387566;
   transform: scale(1.05); 
 }
 .btn-alert {

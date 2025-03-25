@@ -98,6 +98,7 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  color: #d9c251;
 }
 
 /* Make Sure Parallax Doesn't Hide Footer */

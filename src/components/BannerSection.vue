@@ -4,12 +4,16 @@
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
         <q-card ref="card" class="my-card">
           <q-card-section class="text-center">
-            <h1 ref="heading" class="text-bold main-copy font-xxld">
+          
+              <h1 class="flicker">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
+              <h1 ref="heading" class="font-xxlm ">
+            Where Wi-Fi is weak, memories are strong.
+            </h1>
             <hr />
-            <p ref="text" class="font-smd custom-copy q-mt-md q-pt-md q-mb-md">
+            <p ref="text" class="font-smd custom-copy q-mt-md q-pt-md q-mb-lg">
               Step away from the everyday and reconnect with the wild. Breathe in the
               fresh air, feel the ground beneath your feet, and let nature do the rest.
               Roast some marshmallows by the fire, take a quiet moment to meditate, or go
@@ -91,14 +95,26 @@ onMounted(async () => {
   color: white;
   box-shadow: 0 1px 5px rgb(0 0 0 / 94%), 0 2px 2px rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12);
-  background: rgba(231, 207, 207, 0.112);
+    background: rgb(11 141 139 / 11%);;
   backdrop-filter: blur(10px);
+}
+.flicker {
+  animation: flickerAnimation 2s infinite;
+  color: #d9c251;
+}
+
+@keyframes flickerAnimation {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.9; }
+  50% { opacity: 0.6; }
+  55% { opacity: 0.95; }
+  60% { opacity: 0.8; }
 }
 hr {
   width: 50%;
 }
 .main-copy {
-  color: #f0c906;
+  color: #d9c251;
 }
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
