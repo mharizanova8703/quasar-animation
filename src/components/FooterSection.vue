@@ -1,29 +1,29 @@
 <template>
   <q-layout>
     <!-- Footer -->
-    <q-footer elevated class="bg-dark-green text-white q-pa-lg">
-      <div class="footer-container row justify-between items-center">
+    <q-footer elevated class="bg-dark-green q-pa-lg">
+      <div class="footer-container row q-pa-lg justify-between items-center">
 
         <!-- Right: Copyright Info -->
         <div class="col-12 col-md-4 text-center text-md-right">
           
-          <p class="q-mb-none">
+          <p class="q-mb-none font-smd ">
             © {{ new Date().getFullYear() }} Camping Guide. Connect with me.
           </p>
-          <p class="q-mb-none">
+          <p class="q-mb-none q-pt-md">
         <a
           href="https://www.linkedin.com/in/mariya-harizanova-a9651b219/"
-          target="_blank"
-          class="text-white text-caption q-mr-md"
+          class="icon-link"
+          target="_blank" 
+          rel="noopener noreferrer"
         >
-          LinkedIn
+          <img class="soc-icon" src="linkedin.png" alt="linkedin" />
         </a>
         <a
           href="https://x.com/MariyaHari81424"
           target="_blank"
-          class="text-white text-caption"
         >
-          Twitter
+          <img class="soc-icon" src="twitter.png" alt="twitter"/>
         </a>
       </p>
         </div>
@@ -48,7 +48,6 @@
   text-align: center;
 }
 
-/* Ensure Footer Always Stays at Bottom */
 .q-footer {
   position: relative;
   bottom: 0;
@@ -58,7 +57,13 @@
 p{
   color: #ffc932;
 }
-/* Make Sure Parallax Doesn't Hide Footer */
+.soc-icon{
+  width: 30px;
+}
+a {
+  background-color: #031b12;
+  text-decoration: none;
+}
 .q-parallax-container {
   position: relative;
   z-index: 0;
