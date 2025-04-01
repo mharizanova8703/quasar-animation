@@ -21,6 +21,16 @@ $negative : #C10015;
 $info : #31CCEC;
 $warning : #F2C037;
 $yellow-orange: #f5b708;
+$dark-green:#031b12;
+$primary-yellow: #ffc932;
+$white:#ffffff;
+$green-hover:#387566;
+$black:#000000;
+$box-shadow: 0 1px 5px rgb(0 0 0 / 94%),
+0 2px 2px rgba(0, 0, 0, 0.14),
+0 3px 1px -2px rgba(0, 0, 0, 0.12);
+$background: rgb(11 141 139 / 11%);
+$backdrop-filter: blur(10px);
 
 .yellow-orange {
   background-color: $yellow-orange;

@@ -79,14 +79,14 @@ onMounted(async () => {
   });
 });
 </script>
-<style scoped>
+<style scoped lang="scss">
 .list-items {
   padding: 5rem 0;
   text-align: center;
 }
 
 h1 {
-  color: #ffc932;
+  color: $primary-yellow;
   max-width: 700px;
   margin: 0 auto 1rem;
 }

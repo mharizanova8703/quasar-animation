@@ -31,17 +31,17 @@
     </q-footer>
   </q-layout>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .bg-dark-green {
-  background-color: #031b12; /* Deep Army Green */
+  background-color: $dark-green;
 }
 .q-layout {
   min-height: 0px !important;
 }
 .footer-container {
-  z-index: 10; /* Make sure it's above other elements */
+  z-index: 10;
   width: 100%;
-  background-color: #031b12; /* Dark army green for contrast */
+  background-color: $dark-green;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,13 +55,13 @@
   color: #d9c251;
 }
 p{
-  color: #ffc932;
+  color: $primary-yellow;
 }
 .soc-icon{
   width: 30px;
 }
 a {
-  background-color: #031b12;
+  background-color: $dark-green;
   text-decoration: none;
 }
 .q-parallax-container {

@@ -35,10 +35,10 @@ const toggleDrawer = () => {
 };
 </script>
 
-<style scoped>
+<style  scoped lang="scss">
 .bg-dark-green {
-  color: #ffc932;
-  background-color: #031b12;
+  color: $primary-yellow;
+  background-color: $dark-green;
 }
 .favicon-w{
   width:30px;
@@ -53,7 +53,7 @@ const toggleDrawer = () => {
   display: flex;
   align-items: center;
   margin: 0 10px;
-  color: #ffc932;
+  color: $primary-yellow;
 }
 .logo {
   width: 40px;

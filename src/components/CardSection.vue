@@ -109,7 +109,7 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .list-items {
   width: 100%;
   padding: 3rem 0rem;
@@ -126,10 +126,9 @@ onMounted(async () => {
   border-radius: 10px;
   width: 100%;
   color: white;
-  box-shadow: 0 1px 5px rgb(0 0 0 / 94%), 0 2px 2px rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12);
-  background: rgba(231, 207, 207, 0.112);
-  backdrop-filter: blur(10px);
+  box-shadow: $box-shadow;
+  background: $background;
+  backdrop-filter: $backdrop-filter;
 }
 .q-dialog__backdrop {
     z-index: -1;
@@ -143,7 +142,7 @@ onMounted(async () => {
 }
 .model-card{
   color: white;
-  background-color: #031b12;
+  background-color: $dark-green;
 
 }
 q-dialog {
