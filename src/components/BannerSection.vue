@@ -78,6 +78,7 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+
 .list-items {
   width: 100%;
   padding: 5rem 0rem;
@@ -92,7 +93,7 @@ onMounted(async () => {
   min-height: 100%;
   border-radius: 0px;
   width: 100%;
-  color: white;
+  color: $white;
   box-shadow: $box-shadow;
   background: $background;
   backdrop-filter: $backdrop-filter; 
@@ -113,7 +114,7 @@ hr {
   width: 50%;
 }
 .main-copy {
-  color: #ffc932;;
+  color: $primary-yellow;
 }
 .my-card:hover {
   background: rgba(231, 207, 207, 0);
@@ -133,5 +134,9 @@ hr {
   .custom-copy{
     width: 85%;
   }
+  .flicker {
+ font-size: 3rem;
+ line-height: 4rem;
+}
 }
 </style>

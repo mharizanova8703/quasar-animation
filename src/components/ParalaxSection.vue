@@ -100,7 +100,7 @@ onUnmounted(() => {
 .camper-van-container {
   position: relative;
   min-height:100vh;
-  z-index: 3;
+z-index: 3;
 }
 
 .mountain {
@@ -116,14 +116,15 @@ onUnmounted(() => {
   z-index: 10;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
-        .full-wh {
+.full-wh {
             position: absolute;
             top: 0px;
             left: 0px;
             bottom: 0px;
             width: 100%;
-          
+
         }
+            
         
         .bg-animation {
             position: fixed;
@@ -131,10 +132,10 @@ onUnmounted(() => {
             left: 0;
             width: 100%;
             height: 100%;
-            z-index:-1;
-        }
+       z-index:-1;
+}
         
-        .bg-animation {
+.bg-animation {
             position: fixed;
             top: 0;
             left: 0;
@@ -262,4 +263,12 @@ onUnmounted(() => {
                 transform: translateY(-2000px);
             }
         }
+       @media (max-width: 768px) {
+        .camper-van-container {
+          min-height:40vh;
+          }
+          .camper-van{
+          width: 200px;
+          }
+        } 
 </style>
