@@ -91,9 +91,11 @@ onMounted(async () => {
     {
       opacity: 1,
       y: 0,
-      scale: 1,
-      x: 500,
+      scale: 1.2,
+      x: 20,
+      y:-4,
       stagger: 0.3,
+      rotation:360,
       duration: 5,
       ease: "power2.out",
       repeat: -1, // Repeat infinitely

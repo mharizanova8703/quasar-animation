@@ -17,6 +17,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import Lenis from "@studio-freight/lenis";
+
 import MainHeader from "src/components/MainHeader.vue";
 import WelcomeGuide from "src/components/WelcomeGuide.vue";
 import CardSection from "src/components/CardSection.vue";
@@ -26,7 +28,9 @@ import BannerSection from "src/components/BannerSection.vue";
 import ParalaxSection from "src/components/ParalaxSection.vue";
 import CaroselSection from "src/components/CaroselSection.vue";
 import SectionEnd from "src/components/SectionEnd.vue";
+
 const camperVan = ref(null);
+const lenis = ref(null);
 
 const handleScroll = () => {
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -39,25 +43,38 @@ const handleScroll = () => {
       camperVan.value.style.opacity = "0";
     }, 4000);
   } else {
-    // Reset when scrolling up
     camperVan.value.style.transform = "translateX(0)";
     camperVan.value.style.opacity = "1";
   }
 };
 
 onMounted(() => {
-  const header = ref(null);
+  // Add external lottie script
   const script = document.createElement("script");
-  script.src =
-    "https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs";
+  script.src = "https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs";
   script.type = "module";
   document.head.appendChild(script);
 
+  // ✅ Initialize Lenis correctly inside onMounted
+  lenis.value = new Lenis({
+    duration: 1.4,
+    smooth: true,
+    smoothTouch: true,
+  });
+
+  function raf(time) {
+    lenis.value.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Add scroll listener for camper van animation
   window.addEventListener("scroll", handleScroll);
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  lenis.value && lenis.value.destroy(); // ✅ Clean up Lenis instance
 });
 </script>
 
