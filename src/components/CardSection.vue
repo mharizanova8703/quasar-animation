@@ -177,6 +177,7 @@ onMounted(async () => {
   align-items: center;
   text-align: center;
   min-height: 300px; 
+  width: 100%;
   color:$white;
 }
 .q-dialog__backdrop {
