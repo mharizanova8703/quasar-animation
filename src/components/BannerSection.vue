@@ -4,29 +4,29 @@
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center">
         <q-card ref="card" class="my-card">
           <q-card-section class="text-center">
-          
-              <h1 class="flicker montserrat-bold">
+            <h1 class="flicker montserrat-bold">
               Escape Into Nature<br />
               Your Ultimate Camping Guide
             </h1>
-              <h1 ref="heading" class="font-xxlm ">
-            Where Wi-Fi is weak, memories are strong.
+            <h1 ref="heading" class="font-xxlm">
+              Where Wi-Fi is weak, memories are strong.
             </h1>
             <hr />
             <p ref="text" class="font-smd custom-copy q-mt-md q-pt-md q-mb-lg">
-              Step away from the everyday and reconnect with the wild. Breathe in the
-              fresh air, feel the ground beneath your feet, and let nature do the rest.
-              Roast some marshmallows by the fire, take a quiet moment to meditate, or go
-              all in with a ziplining adventure. Whether you're chasing adrenaline or just
-              looking to unwind, the outdoors has something for everyone. So, pack up,
-              head out, and make some real memories under the open sky.
+              Step away from the everyday and reconnect with the wild. Breathe
+              in the fresh air, feel the ground beneath your feet, and let
+              nature do the rest. Roast some marshmallows by the fire, take a
+              quiet moment to meditate, or go all in with a ziplining adventure.
+              Whether you're chasing adrenaline or just looking to unwind, the
+              outdoors has something for everyone. So, pack up, head out, and
+              make some real memories under the open sky.
             </p>
             <div class="paw-prints" ref="paws">
-  <img src="star.png" alt="paw" class="paw" />
-  <img src="star.png" alt="paw" class="paw" />
-  <img src="star.png" alt="paw" class="paw" />
-  <img src="star.png" alt="paw" class="paw" />
-</div>
+              <img src="star.png" alt="paw" class="paw" />
+              <img src="star.png" alt="paw" class="paw" />
+              <img src="star.png" alt="paw" class="paw" />
+              <img src="star.png" alt="paw" class="paw" />
+            </div>
           </q-card-section>
         </q-card>
       </div>
@@ -41,7 +41,8 @@ const loadGSAP = () => {
   return new Promise((resolve) => {
     if (window.gsap) return resolve(); // Prevents multiple loads
     const script = document.createElement("script");
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
     script.onload = resolve;
     document.head.appendChild(script);
   });
@@ -62,7 +63,7 @@ onMounted(async () => {
     scale: 0.8,
     y: 100,
     duration: 1.2,
-    ease: "back.out(1.7)"
+    ease: "back.out(1.7)",
   });
 
   // Animate heading
@@ -71,8 +72,8 @@ onMounted(async () => {
     y: 30,
     duration: 1,
     delay: 0.2,
-    x:700,    
-    ease: "power4.out"
+    x: 700,
+    ease: "power4.out",
   });
 
   // Animate text
@@ -81,7 +82,7 @@ onMounted(async () => {
     y: 20,
     duration: 1,
     delay: 0.4,
-    ease: "power3.out"
+    ease: "power3.out",
   });
 
   gsap.fromTo(
@@ -91,19 +92,18 @@ onMounted(async () => {
       opacity: 1,
       y: 0,
       scale: 1,
-      x:500,
+      x: 500,
       stagger: 0.3,
       duration: 5,
       ease: "power2.out",
-      repeat: -1,    // Repeat infinitely
-      repeatDelay: 2 // Pause after a full walk
+      repeat: -1, // Repeat infinitely
+      repeatDelay: 2, // Pause after a full walk
     }
   );
 });
 </script>
 
 <style scoped lang="scss">
-
 .list-items {
   width: 100%;
   padding: 5rem 0rem;
@@ -121,11 +121,11 @@ onMounted(async () => {
   color: $white;
   box-shadow: $box-shadow;
   background: $background;
-  backdrop-filter: $backdrop-filter; 
+  backdrop-filter: $backdrop-filter;
 }
 .flicker {
   animation: flickerAnimation 2s infinite;
-  color: $primary-yellow
+  color: $primary-yellow;
 }
 .paw-prints {
   margin-top: 2rem;
@@ -140,11 +140,22 @@ onMounted(async () => {
   opacity: 0; /* Start invisible, GSAP will animate */
 }
 @keyframes flickerAnimation {
-  0%, 100% { opacity: 1; }
-  45% { opacity: 0.9; }
-  50% { opacity: 0.6; }
-  55% { opacity: 0.95; }
-  60% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  55% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.8;
+  }
 }
 hr {
   width: 50%;
@@ -153,8 +164,15 @@ hr {
   color: $primary-yellow;
 }
 .my-card:hover {
-  background: rgba(231, 207, 207, 0);
+  background: rgba(32, 28, 28, 0.742);
   transform: scale(1.05);
+}
+.card-image {
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+.card-image:hover {
+  transform: scale(1.1) rotate(3deg);
 }
 .custom-copy {
   width: 65%;
@@ -163,16 +181,17 @@ hr {
 .card-image {
   width: 200px;
 }
+
 @media (max-width: 768px) {
   .col-md-4 {
     width: 100%;
   }
-  .custom-copy{
+  .custom-copy {
     width: 85%;
   }
   .flicker {
- font-size: 3rem;
- line-height: 4rem;
-}
+    font-size: 3rem;
+    line-height: 4rem;
+  }
 }
 </style>

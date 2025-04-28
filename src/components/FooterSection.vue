@@ -1,19 +1,27 @@
 <template>
   <q-layout>
-    <!-- Footer -->
-    <q-footer elevated class="bg-dark-green q-pa-lg">
-      <div class="footer-container row q-pa-lg justify-between items-center">
+ <q-footer elevated class="bg-dark-green q-pa-lg">
+  <div class="footer-container row q-pa-lg justify-between items-center">
 
-        <!-- Right: Copyright Info -->
-        <div class="col-12 col-md-4 text-center text-md-right">
-          
-          <p class="q-mb-none font-smd ">
-            © {{ new Date().getFullYear() }} Camping Guide. Connect with me.
-          </p>
-          <p class="q-mb-none q-pt-md">
+    <!-- Left or Centered Message -->
+    <div class="col-12 text-center q-mb-md">
+      <p class="q-mb-xs font-smd">
+        Made with ❤️ for all camping lovers out there. Let's keep exploring new trails together!
+      </p>
+      <p class="q-mb-md font-smd">
+        Connect with me — I love hearing your camping stories!
+      </p>
+    </div>
+
+    <!-- Right: Copyright Info + Social Links -->
+    <div class="col-12 text-center">
+      <p class="q-mb-none font-smd">
+        © {{ new Date().getFullYear() }} Camping Guide. All rights reserved.
+      </p>
+      <div class="q-mt-md">
         <a
           href="https://www.linkedin.com/in/mariya-harizanova-a9651b219/"
-          class="icon-link"
+          class="icon-link q-mr-md"
           target="_blank" 
           rel="noopener noreferrer"
         >
@@ -25,10 +33,11 @@
         >
           <img class="soc-icon" src="twitter.png" alt="twitter"/>
         </a>
-      </p>
-        </div>
       </div>
-    </q-footer>
+    </div>
+  </div>
+</q-footer>
+
   </q-layout>
 </template>
 <style scoped lang="scss">
@@ -57,8 +66,13 @@
 p{
   color: $primary-yellow;
 }
-.soc-icon{
+.soc-icon {
   width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.soc-icon:hover {
+  transform: scale(1.2);
 }
 a {
   background-color: $dark-green;

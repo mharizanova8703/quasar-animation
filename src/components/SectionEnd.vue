@@ -2,7 +2,7 @@
   <div class="list-items" ref="section">
     <div class="row q-gutter-md justify-center">
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center column items-center">
-        <h1 ref="heading" class="font-xxld  montserrat-bold">
+        <h1 ref="heading" class="font-xxld">
         Bold heart, packed bag let’s blaze a new trail today.
         </h1>
         <div class="stars montserrat-bold">

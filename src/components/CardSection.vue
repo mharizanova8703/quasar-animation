@@ -7,18 +7,37 @@
           :key="index"
           class="col-11 col-sm-6 col-md-3 col-lg-3 flex justify-center"
         >
-          <q-card class="my-card q-mb-lg">
+          <q-card
+            class="my-card q-mb-lg"
+            @mouseenter="showSquirrel(index)"
+            @mouseleave="hideSquirrel(index)"
+          >
+          <SquirrelSection :ref="el => squirrelRefs[index] = el?.squirrelRef ?? null" />
             <q-card-section class="text-center">
-              <q-img ref="images" :src="card.img" class="card-image" />
-              <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
+              <q-img
+                :ref="(el) => (imageRefs[index] = el)"
+                :src="card.img"
+                class="card-image"
+              />
+              <div class="font-pxl text-center montserrat-bold">
+                {{ card.title }}
+              </div>
               <div class="text-subtitle2 text-center">{{ card.author }}</div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-              {{ card.text.length > 50 ? card.text.substring(0, 50) + "..." : card.text }}
+              {{
+                card.text.length > 50
+                  ? card.text.substring(0, 50) + "..."
+                  : card.text
+              }}
             </q-card-section>
 
-            <q-btn label="Read More" color="yellow-orange  btn-alert" @click="openModal(card)" />
+            <q-btn
+              label="Read More"
+              color="yellow-orange btn-alert"
+              @click="openModal(card)"
+            />
           </q-card>
         </div>
       </div>
@@ -26,59 +45,91 @@
     <q-dialog v-model="selectedCard.alert">
       <q-card class="model-card q-pa-md">
         <q-card-section class="text-center">
-          <div class="montserrat-bold font-xls alert-btn mx-auto">{{ selectedCard.title }}</div>
+          <div class="montserrat-bold font-xls alert-btn mx-auto">
+            {{ selectedCard.title }}
+          </div>
         </q-card-section>
 
         <q-card-section class="q-pt-none text-center">
           <q-img ref="modalImage" :src="selectedCard.img" class="modal-image" />
-          <p>{{ selectedCard.text }}</p> <!-- Full text displayed in modal -->
+          <p>{{ selectedCard.text }}</p>
+          <!-- Full text displayed in modal -->
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="Close" color="yellow-orange q-my-auto q-mb-lg" v-close-popup />
+          <q-btn
+            flat
+            label="Close"
+            color="yellow-orange q-my-auto q-mb-lg"
+            v-close-popup
+          />
         </q-card-actions>
       </q-card>
     </q-dialog>
   </div>
-  
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import SquirrelSection from "src/components/SquirrelSection.vue";
 
 const loadGSAP = () => {
   return new Promise((resolve) => {
-    if (window.gsap) return resolve(); // Prevents multiple loads
+    if (window.gsap) return resolve();
     const script = document.createElement("script");
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
     script.onload = resolve;
     document.head.appendChild(script);
   });
 };
 
 const selectedCard = ref({ alert: false });
-const images = ref([]);
+const squirrelRefs = ref([]);
+const imageRefs = ref([]);
 const modalImage = ref(null);
+const showSquirrel = async (index) => {
+  await loadGSAP();
+  const squirrel = squirrelRefs.value[index];
+  if (squirrel) {
+    gsap.to(squirrel, {
+      y: -50,
+      opacity: 1,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    });
+  }
+};
+
+const hideSquirrel = async (index) => {
+  await loadGSAP();
+  const squirrel = squirrelRefs.value[index];
+  if (squirrel) {
+    gsap.to(squirrel, {
+      y: 0,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.inOut",
+    });
+  }
+};
 
 const cards = ref([
   {
     title: "Shoes",
-    text:
-      "Choosing the right footwear is essential. Hiking boots provide ankle support, waterproof shoes protect against wet trails, and sandals are perfect for casual campsite wear. Make sure your shoes are broken in before the trip!",
+    text: "Choosing the right footwear is essential...",
     img: "boots.png",
     alert: false,
   },
   {
     title: "Camping Fire",
-    text:
-      "Fire is essential for warmth, cooking, and safety. Bring waterproof matches, fire starters, and dry kindling. Follow Leave No Trace principles—only build fires in designated areas and extinguish them completely before leaving.",
+    text: "Fire is essential for warmth, cooking, and safety...",
     img: "wild-fire.png",
     alert: false,
   },
   {
     title: "Wild Animals",
-    text:
-      "Wildlife encounters are part of camping. Store food in bear-proof containers, never feed animals, and know how to react to encounters with bears, snakes, or coyotes. Keep your distance and respect their habitat.",
+    text: "Wildlife encounters are part of camping...",
     img: "wild-life.png",
     alert: false,
   },
@@ -86,25 +137,24 @@ const cards = ref([
 
 const openModal = (card) => {
   selectedCard.value = { ...card, alert: true };
-
   setTimeout(() => {
     gsap.from(modalImage.value.$el, {
       opacity: 0,
       scale: 0.5,
       duration: 0.8,
-      ease: "power2.out"
+      ease: "power2.out",
     });
   }, 100);
 };
 
 onMounted(async () => {
   await loadGSAP();
-  gsap.from(images.value.map(img => img.$el), {
+  gsap.from(imageRefs.value, {
     opacity: 0,
     scale: 0.9,
     duration: 1.2,
     stagger: 0.3,
-    ease: "power3.out"
+    ease: "power3.out",
   });
 });
 </script>
@@ -116,41 +166,39 @@ onMounted(async () => {
   z-index: 1;
 }
 .my-card {
+  position: relative;
+  overflow: visible;
+  background: $background;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 1rem;
-  min-height: 100%;
-  border-radius: 10px;
-  width: 100%;
-  color: white;
-  box-shadow: $box-shadow;
-  background: $background;
-  backdrop-filter: $backdrop-filter;
+  min-height: 300px; 
+  color:$white;
 }
 .q-dialog__backdrop {
-    z-index: -1;
-    pointer-events: all;
-    outline: 0;
-    background: rgb(4, 3, 3);
+  z-index: -1;
+  pointer-events: all;
+  outline: 0;
+  background: rgb(4, 3, 3);
 }
-.q-card__actions{
+.q-card__actions {
   display: flex;
   justify-content: center;
 }
-.model-card{
+.model-card {
   color: white;
   background-color: $dark-green;
-
 }
 q-dialog {
   display: flex;
   justify-content: center;
 }
 .my-card:hover {
-  background: rgba(231, 207, 207, 0);
+  background: rgba(32, 28, 28, 0.742);
   transform: scale(1.05);
 }
 .card-image {
@@ -169,22 +217,24 @@ q-dialog {
 .q-btn {
   cursor: pointer;
   background-color: #d9c251;
-   border-radius: 2rem;
-  color: #181d06!important;
+  border-radius: 2rem;
+  color: #181d06 !important;
   width: 200px;
   font-family: var(--font-montserrat-bold);
   font-weight: var(--font-weight-bold);
 }
 .q-btn:hover {
   background-color: #387566;
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 .btn-alert {
   color: black;
 }
+
+
 @media (max-width: 768px) {
   .col-md-4 {
-    width: 100%
+    width: 100%;
   }
 }
 </style>

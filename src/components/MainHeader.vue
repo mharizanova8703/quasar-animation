@@ -7,9 +7,14 @@
           :key="index"
           class="col-11 col-sm-6 col-md-3 col-lg-3 flex justify-center"
         >
-          <q-card class="my-card">
+                  <q-card
+            class="my-card q-mb-lg"
+            @mouseenter="showSquirrel(index)"
+            @mouseleave="hideSquirrel(index)"
+          >
+          <SquirrelSection :ref="el => squirrelRefs[index] = el?.squirrelRef ?? null" />
             <q-card-section class="text-center">
-              <q-img ref="images" :src="card.img" class="card-image" />
+              <img ref="images" :src="card.img" class="card-image" />
               <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
               <div class="text-subtitle2 text-center">{{ card.author }}</div>
             </q-card-section>
@@ -45,6 +50,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import SquirrelSection from "src/components/SquirrelSection.vue";
 
 const loadGSAP = () => {
   return new Promise((resolve) => {
@@ -58,7 +64,33 @@ const loadGSAP = () => {
 
 const selectedCard = ref({ alert: false });
 const images = ref([]);
+const squirrelRefs = ref([]);
 const modalImage = ref(null);
+const showSquirrel = async (index) => {
+  await loadGSAP();
+  const squirrel = squirrelRefs.value[index];
+  if (squirrel) {
+    gsap.to(squirrel, {
+      y: -50,
+      opacity: 1,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    });
+  }
+};
+
+const hideSquirrel = async (index) => {
+  await loadGSAP();
+  const squirrel = squirrelRefs.value[index];
+  if (squirrel) {
+    gsap.to(squirrel, {
+      y: 0,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.inOut",
+    });
+  }
+};
 
 const cards = ref([
   {
@@ -116,19 +148,18 @@ onMounted(async () => {
   z-index: 1;
 }
 .my-card {
+  position: relative;
+  overflow: visible;
+  background: $background;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 1rem;
-  min-height: 100%;
-  border-radius: 10px;
-  width: 100%;
-  color: $white;
-  box-shadow: $box-shadow;
-  background: $background;
-  backdrop-filter: $backdrop-filter;
+  min-height: 300px; 
+  color:$white;
 }
 .q-dialog__backdrop {
     z-index: -1;
@@ -145,15 +176,16 @@ q-dialog {
   justify-content: center;
 }
 .my-card:hover {
-  background: rgba(231, 207, 207, 0);
+  background: rgba(32, 28, 28, 0.742);
   transform: scale(1.05);
 }
 .card-image {
   width: 200px;
   transition: transform 0.3s ease;
-}
-.card-image:hover {
+  
+  &:hover{
   transform: scale(1.1) rotate(3deg);
+  }
 }
 
 .modal-image {
