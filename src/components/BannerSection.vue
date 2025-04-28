@@ -21,6 +21,12 @@
               looking to unwind, the outdoors has something for everyone. So, pack up,
               head out, and make some real memories under the open sky.
             </p>
+            <div class="paw-prints" ref="paws">
+  <img src="star.png" alt="paw" class="paw" />
+  <img src="star.png" alt="paw" class="paw" />
+  <img src="star.png" alt="paw" class="paw" />
+  <img src="star.png" alt="paw" class="paw" />
+</div>
           </q-card-section>
         </q-card>
       </div>
@@ -45,35 +51,54 @@ const loadGSAP = () => {
 const card = ref(null);
 const heading = ref(null);
 const text = ref(null);
+const paws = ref(null);
 
 onMounted(async () => {
   await loadGSAP();
 
+  // Animate card
   gsap.from(card.value, {
     opacity: 0,
     scale: 0.8,
-    y: 100, 
+    y: 100,
     duration: 1.2,
     ease: "back.out(1.7)"
   });
 
-  // ✅ Heading slides in naturally
+  // Animate heading
   gsap.from(heading.value, {
     opacity: 0,
-    y: 30, // Less floating, more "walking in"
+    y: 30,
     duration: 1,
     delay: 0.2,
+    x:700,    
     ease: "power4.out"
   });
 
-  // ✅ Text staggered fade-in with a solid start
+  // Animate text
   gsap.from(text.value, {
     opacity: 0,
-    y: 20, // Small movement for a grounded feel
+    y: 20,
     duration: 1,
     delay: 0.4,
     ease: "power3.out"
   });
+
+  gsap.fromTo(
+    paws.value.querySelectorAll(".paw"),
+    { opacity: 0, y: 20, scale: 0.8 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      x:500,
+      stagger: 0.3,
+      duration: 5,
+      ease: "power2.out",
+      repeat: -1,    // Repeat infinitely
+      repeatDelay: 2 // Pause after a full walk
+    }
+  );
 });
 </script>
 
@@ -102,7 +127,18 @@ onMounted(async () => {
   animation: flickerAnimation 2s infinite;
   color: $primary-yellow
 }
+.paw-prints {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 
+.paw {
+  width: 40px;
+  height: 40px;
+  opacity: 0; /* Start invisible, GSAP will animate */
+}
 @keyframes flickerAnimation {
   0%, 100% { opacity: 1; }
   45% { opacity: 0.9; }

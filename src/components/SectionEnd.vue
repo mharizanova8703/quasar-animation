@@ -3,7 +3,7 @@
     <div class="row q-gutter-md justify-center">
       <div class="col-sm-12 col-md-12 col-lg-12 flex justify-center column items-center">
         <h1 ref="heading" class="font-xxld  montserrat-bold">
-        Bold heart, packed bag — let’s blaze a new trail today.
+        Bold heart, packed bag let’s blaze a new trail today.
         </h1>
         <div class="stars montserrat-bold">
           <img class="star-asset" src="star.png" />

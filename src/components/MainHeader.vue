@@ -134,7 +134,7 @@ onMounted(async () => {
     z-index: -1;
     pointer-events: all;
     outline: 0;
-    background: rgb(0 0 0 / 78%);
+    background: rgba(0, 0, 0, 0.99);
 }
 .q-card__actions{
   display: flex;

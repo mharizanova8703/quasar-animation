@@ -7,7 +7,7 @@
           :key="index"
           class="col-11 col-sm-6 col-md-3 col-lg-3 flex justify-center"
         >
-          <q-card class="my-card">
+          <q-card class="my-card q-mb-lg">
             <q-card-section class="text-center">
               <q-img ref="images" :src="card.img" class="card-image" />
               <div class="font-pxl text-center montserrat-bold">{{ card.title }}</div>
@@ -134,7 +134,7 @@ onMounted(async () => {
     z-index: -1;
     pointer-events: all;
     outline: 0;
-    background: rgba(0, 0, 0, 0.958);
+    background: rgb(4, 3, 3);
 }
 .q-card__actions{
   display: flex;
