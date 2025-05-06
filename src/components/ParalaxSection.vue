@@ -3,7 +3,7 @@
     <!-- Parallax Background -->
     <div class="q-parallax">
       <div class="q-parallax__media">
-        <img ref="mountain" class="mountain" src="/forest-bg.png" />
+        <img ref="mountain" class="mountain" src="bg-forest.png" />
       </div>
     </div>
     <div class="bg-animation">
@@ -56,7 +56,7 @@ onUnmounted(() => {
 .parallax-container {
   position: relative;
   overflow: hidden;
-  background-image: url('forest-bg.png'); /* Adding background image */
+  background-image: url('/quasar-winner-modal/public/bg-forest.png'); /* Adding background image */
   background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
