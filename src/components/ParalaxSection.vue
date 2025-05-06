@@ -56,7 +56,7 @@ onUnmounted(() => {
 .parallax-container {
   position: relative;
   overflow: hidden;
-  background-image: url('/quasar-winner-modal/public/bg-forest.png'); /* Adding background image */
+ background-image: url('/forest-bg.png');/* Adding background image */
   background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
