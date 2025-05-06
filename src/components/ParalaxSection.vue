@@ -3,7 +3,7 @@
     <!-- Parallax Background -->
     <div class="q-parallax">
       <div class="q-parallax__media">
-        <img ref="mountain" class="mountain" src="bg-forest.png" />
+        <img ref="mountain" class="mountain" src="/forest-bg.png" />
       </div>
     </div>
     <div class="bg-animation">
